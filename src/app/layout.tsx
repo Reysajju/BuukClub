@@ -87,7 +87,7 @@ export default function RootLayout({
         <meta property="twitter:image" content="https://buukclub.com/og-image.jpg" />
 
         {/* Apple Web App */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="BuukClub" />
 
