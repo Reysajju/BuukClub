@@ -13,11 +13,11 @@ function Counter({ value }: { value: number }) {
     useEffect(() => {
         const controls = animate(displayValue, value, {
             duration: 1,
-            onUpdate: (latest) => setDisplayValue(Math.floor(latest)),
+            onUpdate: (latest: number) => setDisplayValue(Math.floor(latest)),
             ease: "easeOut"
         });
         return controls.stop;
-    }, [value]);
+    }, [value, displayValue]);
 
     return <span>{displayValue.toLocaleString()}</span>;
 }
@@ -60,36 +60,74 @@ export function RevenueCalculator() {
                         <CardContent className="space-y-8">
                             <div className="grid gap-8 md:grid-cols-2">
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium flex justify-between">
+                                    <label className="text-sm font-medium flex justify-between items-center">
                                         <span>Total Social Followers</span>
-                                        <span className="text-primary font-bold">{followers.toLocaleString()}</span>
+                                        <motion.span
+                                            key={followers}
+                                            initial={{ scale: 1.2 }}
+                                            animate={{ scale: 1 }}
+                                            className="text-primary font-bold px-3 py-1 bg-primary/10 rounded-full"
+                                        >
+                                            {followers.toLocaleString()}
+                                        </motion.span>
                                     </label>
-                                    <input
-                                        type="range"
-                                        min="1000"
-                                        max="1000000"
-                                        step="1000"
-                                        value={followers}
-                                        onChange={(e) => setFollowers(Number(e.target.value))}
-                                        className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
-                                    />
-                                    <p className="text-xs text-muted-foreground">Across all platforms (TikTok, IG, Twitter)</p>
+                                    <div className="relative pt-2 pb-1">
+                                        <input
+                                            type="range"
+                                            min="1000"
+                                            max="1000000"
+                                            step="1000"
+                                            value={followers}
+                                            onChange={(e) => setFollowers(Number(e.target.value))}
+                                            className="slider-enhanced w-full h-3 bg-gradient-to-r from-muted via-primary/20 to-primary/40 rounded-full appearance-none cursor-pointer 
+                                            [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 
+                                            [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-br [&::-webkit-slider-thumb]:from-primary [&::-webkit-slider-thumb]:to-accent 
+                                            [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-primary/50 [&::-webkit-slider-thumb]:cursor-pointer 
+                                            [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-background [&::-webkit-slider-thumb]:transition-all 
+                                            [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95
+                                            [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:rounded-full 
+                                            [&::-moz-range-thumb]:bg-gradient-to-br [&::-moz-range-thumb]:from-primary [&::-moz-range-thumb]:to-accent 
+                                            [&::-moz-range-thumb]:shadow-lg [&::-moz-range-thumb]:shadow-primary/50 [&::-moz-range-thumb]:cursor-pointer 
+                                            [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-background [&::-moz-range-thumb]:transition-all
+                                            [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:active:scale-95 [&::-moz-range-thumb]:border-0"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-muted-foreground text-center">Across all platforms (TikTok, IG, Twitter)</p>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium flex justify-between">
+                                    <label className="text-sm font-medium flex justify-between items-center">
                                         <span>Monthly Membership Price</span>
-                                        <span className="text-primary font-bold">${price}</span>
+                                        <motion.span
+                                            key={price}
+                                            initial={{ scale: 1.2 }}
+                                            animate={{ scale: 1 }}
+                                            className="text-primary font-bold px-3 py-1 bg-primary/10 rounded-full"
+                                        >
+                                            ${price}
+                                        </motion.span>
                                     </label>
-                                    <input
-                                        type="range"
-                                        min="5"
-                                        max="100"
-                                        step="1"
-                                        value={price}
-                                        onChange={(e) => setPrice(Number(e.target.value))}
-                                        className="w-full h-2 bg-muted rounded-lg appearance-none cursor-pointer accent-primary"
-                                    />
-                                    <p className="text-xs text-muted-foreground">Recommended: $20 - $50</p>
+                                    <div className="relative pt-2 pb-1">
+                                        <input
+                                            type="range"
+                                            min="5"
+                                            max="100"
+                                            step="1"
+                                            value={price}
+                                            onChange={(e) => setPrice(Number(e.target.value))}
+                                            className="slider-enhanced w-full h-3 bg-gradient-to-r from-muted via-accent/20 to-accent/40 rounded-full appearance-none cursor-pointer 
+                                            [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 
+                                            [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-gradient-to-br [&::-webkit-slider-thumb]:from-accent [&::-webkit-slider-thumb]:to-primary 
+                                            [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-accent/50 [&::-webkit-slider-thumb]:cursor-pointer 
+                                            [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-background [&::-webkit-slider-thumb]:transition-all 
+                                            [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:active:scale-95
+                                            [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:rounded-full 
+                                            [&::-moz-range-thumb]:bg-gradient-to-br [&::-moz-range-thumb]:from-accent [&::-moz-range-thumb]:to-primary 
+                                            [&::-moz-range-thumb]:shadow-lg [&::-moz-range-thumb]:shadow-accent/50 [&::-moz-range-thumb]:cursor-pointer 
+                                            [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-background [&::-moz-range-thumb]:transition-all
+                                            [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:active:scale-95 [&::-moz-range-thumb]:border-0"
+                                        />
+                                    </div>
+                                    <p className="text-xs text-muted-foreground text-center">Recommended: $20 - $50</p>
                                 </div>
                             </div>
 
