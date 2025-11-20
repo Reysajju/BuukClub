@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Mail, MessageSquare } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
     return (
