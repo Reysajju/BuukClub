@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://antiamazon.club"; // Replace with actual domain
+    const baseUrl = "https://buukclub.com";
 
     return [
         {
@@ -20,7 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/blog`,
             lastModified: new Date(),
             changeFrequency: "weekly",
-            priority: 0.8,
+            priority: 0.9,
         },
         {
             url: `${baseUrl}/pricing`,
@@ -32,8 +32,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
             url: `${baseUrl}/manifesto`,
             lastModified: new Date(),
             changeFrequency: "monthly",
+            priority: 0.8,
+        },
+        {
+            url: `${baseUrl}/apply`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
             priority: 0.9,
         },
-        // Add other pages...
+        {
+            url: `${baseUrl}/join`,
+            lastModified: new Date(),
+            changeFrequency: "monthly",
+            priority: 0.9,
+        },
     ];
 }

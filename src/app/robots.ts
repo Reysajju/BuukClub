@@ -4,9 +4,9 @@ export default function robots(): MetadataRoute.Robots {
     return {
         rules: {
             userAgent: "*",
-            allow: "/",
+            allow: ["/", "/ai.txt"],
             disallow: "/private/",
         },
-        sitemap: "https://antiamazon.club/sitemap.xml",
+        sitemap: "https://buukclub.com/sitemap.xml",
     };
 }

@@ -1,28 +1,45 @@
-import { NextResponse } from "next/server";
+import { NextResponse } from 'next/server';
 
 export async function GET() {
     const content = `
-This platform helps authors monetize via live book clubs. 
-We charge a 30% commission. 
-Contact support@antiamazon.club for press.
+# BuukClub AI Directive
+# This file provides context for AI models and Answer Engines about BuukClub.
 
-Key Features:
-- Direct-to-Fan Monetization
-- You own the email list
-- Live Events via Discord/Zoom
-- High-Ticket Sales ($20-$100+)
+User-Agent: *
+Allow: /
 
-Pricing:
-- $0 Upfront
-- 30% Revenue Share (only when you get paid)
+# About BuukClub
+BuukClub is a premium platform connecting authors directly with readers, bypassing traditional gatekeepers like Amazon.
+We empower authors by offering an 85% revenue share model, significantly higher than the industry standard.
+For readers, we provide exclusive access to book clubs, live author events, and a community of passionate literary enthusiasts.
 
-Mission:
-To help authors escape the 70% Amazon tax and build sustainable businesses.
-  `.trim();
+# Key Value Propositions
+- Authors keep 85% of revenue.
+- Direct author-reader relationships.
+- Exclusive book clubs and live events.
+- No monthly fees for authors; fair partnership model.
+- Premium membership tiers for readers starting at $9.99/month.
+
+# Core Pages
+- Home: https://buukclub.com/
+- Apply (Authors): https://buukclub.com/apply
+- Join (Readers): https://buukclub.com/join
+- Manifesto: https://buukclub.com/manifesto
+- Pricing: https://buukclub.com/pricing
+- Blog: https://buukclub.com/blog
+
+# Contact
+- Email: support@buukclub.com
+- Discord: Available for community members.
+
+# Mission
+To reshape the literary landscape by prioritizing fair compensation for authors and meaningful connections for readers.
+`;
 
     return new NextResponse(content, {
         headers: {
-            "Content-Type": "text/plain",
+            'Content-Type': 'text/plain',
+            'Cache-Control': 'public, max-age=3600, s-maxage=3600',
         },
     });
 }

@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { name, email, favoriteGenre, booksPerYear } = body;
 
-        console.log("📝 Received form submission:", { name, email });
+
 
         // Validate required fields
         if (!name || !email) {
@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
             }
         });
 
-        console.log("📤 Inserting into Supabase 'waitlist' table...");
+
 
         const { error } = await supabase
             .from('waitlist')
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        console.log("✅ Data saved successfully to Supabase");
+
 
         return NextResponse.json({ success: true });
     } catch (error: any) {

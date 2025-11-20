@@ -4,14 +4,12 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { name, email, socialProfile, followers, painPoint, pitch } = body;
-
-
+        const { name, email, message } = body;
 
         // Validate required fields
-        if (!name || !email) {
+        if (!name || !email || !message) {
             return NextResponse.json(
-                { error: "Name and email are required" },
+                { error: "Name, email, and message are required" },
                 { status: 400 }
             );
         }
@@ -35,30 +33,23 @@ export async function POST(request: NextRequest) {
             }
         });
 
-
-
         const { error } = await supabase
-            .from('applications')
+            .from('contact_messages')
             .insert([
                 {
                     name,
                     email,
-                    social_profile: socialProfile || "Not provided",
-                    followers: followers || 0,
-                    pain_point: painPoint || "Not specified",
-                    pitch: pitch || "Not provided",
+                    message,
                 }
             ]);
 
         if (error) {
             console.error("❌ Supabase Error:", error.message);
             return NextResponse.json(
-                { error: "Failed to save application" },
+                { error: "Failed to save message" },
                 { status: 500 }
             );
         }
-
-
 
         return NextResponse.json({ success: true });
     } catch (error: any) {
