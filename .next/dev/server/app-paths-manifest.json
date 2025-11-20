@@ -1,0 +1,14 @@
+{
+  "/api/join/route": "app/api/join/route.js",
+  "/apply/page": "app/apply/page.js",
+  "/benefits-calculator/page": "app/benefits-calculator/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/calculator/page": "app/calculator/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/join/page": "app/join/page.js",
+  "/manifesto/page": "app/manifesto/page.js",
+  "/page": "app/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/revenue-simulator/page": "app/revenue-simulator/page.js"
+}
